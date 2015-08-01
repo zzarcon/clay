@@ -4,16 +4,23 @@
 <head>
     <title>Clay</title>
     <style>
-      #content{
+      .box{
         border: 1px solid black;
-        background-color: cornflowerblue;
         width: 150px;
         height: 150px;
+        margin: 5px;
+      }
+      #resizable{
+        background-color: cornflowerblue;
+      }
+      #content{
+        background-color: darkcyan;
       }
     </style>
 </head>
 <body>
-    <div id="content"></div>
+    <div id="resizable" class="box"></div>
+    <div id="content" class="box"></div>
     <script src="http://localhost:8090/webpack-dev-server.js"></script>
     <script type="text/javascript" src="http://localhost:8090/assets/bundle.js"></script>
     <script type="text/javascript" src="http://localhost:8090/test.js"></script>

@@ -11,7 +11,17 @@ function $(selector) {
   return document.querySelector(selector);
 }
 
+function raf() {
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function(callback) {
+            window.setTimeout(callback, 1000 / 60);
+          };
+}
+
 module.exports = {
   extend: extend,
-  $: $
+  $: $,
+  raf: raf
 };
