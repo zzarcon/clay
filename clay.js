@@ -10,13 +10,36 @@ exportModule('Clay', function() {
       this.selector = selector;
       this.options = extend(defaults, options);
       this.el = $(selector);
+      this.eventHanlers = {};
 
-      this.el.style.resize = "both";
+      this.el.style.resize = this.options.resize;
       this.el.style.overflow = "auto";
+
+      this.addEvents();
     }
 
-    on(eventName) {
+    addEvents() {
+      this.el.addEventListener('mouseenter', function() {
+        console.log('enter');
+      }.bind(this));
 
+      this.el.addEventListener('mouseleave', function() {
+        console.log('leave');
+
+        if (this.isResizing) {
+          this.isResizing = false;
+          console.log('STOP');
+        }
+      }.bind(this));
+
+      addResizeListener(this.el, function() {
+        console.log('resized');
+        this.isResizing = true;
+      }.bind(this));
+    }
+
+    on(eventName, cb) {
+      this.eventHanlers[eventName] = cb;
     }
   }
   
