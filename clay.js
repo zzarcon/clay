@@ -1,4 +1,5 @@
 import {$, extend} from "./utils";
+var elementResizeEvent = require('element-resize-event');
 
 exportModule('Clay', function() {
   var defaults = {
@@ -19,22 +20,12 @@ exportModule('Clay', function() {
     }
 
     addEvents() {
-      this.el.addEventListener('mouseenter', function() {
-        console.log('enter');
-      }.bind(this));
-
-      this.el.addEventListener('mouseleave', function() {
-        console.log('leave');
-
-        if (this.isResizing) {
-          this.isResizing = false;
-          console.log('STOP');
-        }
-      }.bind(this));
-
-      addResizeListener(this.el, function() {
-        console.log('resized');
-        this.isResizing = true;
+      elementResizeEvent(this.el, function() {
+        var cb = this.eventHanlers['resize'];
+        if (!cb) return;
+        
+        var size = this.el.getBoundingClientRect();
+        cb(size);
       }.bind(this));
     }
 

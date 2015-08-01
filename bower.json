@@ -15,6 +15,5 @@
     "tests"
   ],
   "dependencies": {
-    "javascript-detect-element-resize": "0.5.3"
   }
 }
