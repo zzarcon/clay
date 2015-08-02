@@ -1,6 +1,6 @@
 {
   "name": "Clay",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Resize your elements so simple it hurts",
   "main": "webpack.config.js",
   "scripts": {
