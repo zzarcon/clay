@@ -7,7 +7,7 @@
     "start": "npm run serve | npm run dev",
     "serve": "./node_modules/.bin/http-server -p 8080",
     "dev": "webpack-dev-server --progress --colors --port 8090",
-    "release": "browserify clay.js -t babelify --outfile dist/clay.js && git add dist"
+    "release": "browserify clay.js -t babelify --outfile dist/clay.js && git add dist && npm version patch && git push --tags"
   },
   "repository": {
     "type": "git",
