@@ -81,9 +81,11 @@ exportModule('Clay', function () {
       value: function cloneElement() {
         var fake = this.el.cloneNode();
         var rect = this.el.getBoundingClientRect();
+        var top = this.el.offsetTop;
+        var left = this.el.offsetLeft;
 
-        this.el.style.top = rect.top + 'px';
-        this.el.style.left = rect.left + 'px';
+        this.el.style.top = top + 'px';
+        this.el.style.left = left + 'px';
         this.el.style.margin = 0;
         this.el.style.position = "absolute";
 
