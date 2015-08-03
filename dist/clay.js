@@ -14,10 +14,7 @@ exportModule('Clay', function () {
     function Clay(selector, options) {
       _classCallCheck(this, Clay);
 
-      var defaults = {
-        resize: "both",
-        absolute: false
-      };
+      var defaults = { resize: "both", absolute: false };
       this.selector = selector;
       this.options = (0, _utils.extend)(defaults, options);
       this.el = (0, _utils.$)(selector);
