@@ -85,6 +85,8 @@ exportModule('Clay', function() {
     /**
      * TODO: Reset properly when using "absolute: true" param
      * TODO: Remove "fake" associated element if exist
+     *
+     * Reset element to previous status
      * @return {void} 
      */
     reset() {
