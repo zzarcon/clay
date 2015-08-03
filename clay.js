@@ -2,13 +2,12 @@ import {$, extend} from "./utils";
 var elementResizeEvent = require('element-resize-event');
 
 exportModule('Clay', function() {
-  var defaults = {
-    resize: "both",
-    absolute: false
-  };
-
   class Clay {
     constructor(selector, options) {
+      var defaults = {
+        resize: "both",
+        absolute: false
+      };
       this.selector = selector;
       this.options = extend(defaults, options);
       this.el = $(selector);
