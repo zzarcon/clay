@@ -11,3 +11,17 @@
 ### Demo
 
 Check the Demo and Examples here http://zzarcon.github.io/clay/
+
+### Showcase
+
+**Basic usage**
+![](https://raw.github.com/zzarcon/clay/master/demo/1.gif)
+
+**Playing with the direction**
+![](https://raw.github.com/zzarcon/clay/master/demo/2.gif)
+
+**Keeping the element layout agnostic**
+![](https://raw.github.com/zzarcon/clay/master/demo/3.gif)
+
+**Events**
+![](https://raw.github.com/zzarcon/clay/master/demo/4.gif)
