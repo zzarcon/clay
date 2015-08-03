@@ -4,10 +4,7 @@ var elementResizeEvent = require('element-resize-event');
 exportModule('Clay', function() {
   class Clay {
     constructor(selector, options) {
-      var defaults = {
-        resize: "both",
-        absolute: false
-      };
+      var defaults = {resize: "both", absolute: false};
       this.selector = selector;
       this.options = extend(defaults, options);
       this.el = $(selector);
