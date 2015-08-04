@@ -11,6 +11,7 @@ exportModule('Clay', function() {
       this.options = extend(defaults, options);
       this.el = $(selector);
       this.eventHanlers = {};
+      
       style = this.el.style;
 
       //TODO: Improve way of get initial styles
