@@ -1,5 +1,5 @@
 {
-  "name": "Clay",
+  "name": "clay.js",
   "version": "0.1.10",
   "description": "Resize your elements so simple it hurts",
   "main": "webpack.config.js",
@@ -7,7 +7,10 @@
     "start": "npm run serve | npm run dev",
     "serve": "./node_modules/.bin/http-server -p 8080",
     "dev": "webpack-dev-server --progress --colors --port 8090",
-    "release": "npm version patch && node_modules/browserify/bin/cmd.js clay.js -t babelify --outfile dist/clay.js && git add dist && git commit --amend --reuse-message=HEAD && git push --tags && git push"
+    "build": "node_modules/browserify/bin/cmd.js clay.js -t babelify --outfile dist/clay.js",
+    "amend": "git add dist && git commit --amend --reuse-message=HEAD",
+    "push": "git push --tags && git push", 
+    "release": "npm version patch && npm run build && npm run amend && npm run push && npm publish"
   },
   "repository": {
     "type": "git",
