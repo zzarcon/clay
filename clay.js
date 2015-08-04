@@ -104,7 +104,8 @@ function exportModule(name, definition) {
   } else if (typeof define == 'function' && typeof define.amd == 'object') {
     define(definition);
   } 
-  if (window) {
+
+  if (typeof window != 'undefined') {
     window[name] = definition();
   }
 }

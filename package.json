@@ -2,7 +2,7 @@
   "name": "clay.js",
   "version": "0.1.18",
   "description": "Resize your elements so simple it hurts",
-  "main": "webpack.config.js",
+  "main": "./dist/clay.js",
   "scripts": {
     "start": "npm run serve | npm run dev",
     "serve": "./node_modules/.bin/http-server -p 8080",
