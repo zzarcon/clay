@@ -5,19 +5,22 @@ exportModule('Clay', function() {
   class Clay {
     constructor(selector, options) {
       var defaults = {resize: "both", absolute: false};
+      var style;
+      
       this.selector = selector;
       this.options = extend(defaults, options);
       this.el = $(selector);
       this.eventHanlers = {};
+      style = this.el.style;
 
       //TODO: Improve way of get initial styles
       this.initialStyles = {
-        resize: this.el.style.resize,
-        overflow: this.el.style.overflow,
-        top: this.el.style.top,
-        left: this.el.style.left,
-        margin: this.el.style.margin,
-        position: this.el.style.position
+        resize: style.resize,
+        overflow: style.overflow,
+        top: style.top,
+        left: style.left,
+        margin: style.margin,
+        position: style.position
       };
 
       this.el.style.resize = this.options.resize;
