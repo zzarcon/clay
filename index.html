@@ -92,9 +92,10 @@ var el3 = new Clay('.clay-3', {resize: "horizontal"});</code></pre>
       </div>
       <p>Events:</p>
       <pre><code>var el5 = new Clay('.clay-5');
+      
 el5.on('resize', function(size) {
-        console.log(size.height, size.width);
-        });</code></pre>
+  console.log(size.height, size.width);
+});</code></pre>
       <div class="clay-5 clay box">Resizeme</div>
       <div class="event-result">Height: 150 Width: 150</div>
       <p>All Options:</p>
@@ -110,7 +111,12 @@ el5.on('resize', function(size) {
           <tr>
             <td>absolute</td>
             <td>Boolean</td>
-            <td>Description...</td>
+            <td>This makes the element to not interfere with the rest of the elements in the page.</td>
+          </tr>
+          <tr>
+            <td>resize</td>
+            <td>String</td>
+            <td>Limit the resize direction, values: "vertical", "horizontal".</td>
           </tr>
         </tbody>
       </table>
@@ -126,8 +132,28 @@ el5.on('resize', function(size) {
         <tbody>
           <tr>
             <td>on</td>
-            <td>String...</td>
-            <td>Description...</td>
+            <td>name, callback</td>
+            <td>Adds a handler to the element (See the events table)</td>
+          </tr>
+          <tr>
+            <td>reset</td>
+            <td></td>
+            <td>Restores the status of the element to their initial value.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>All events:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>resize</td>
+            <td>Fired when the size of the element changes.</td>
           </tr>
         </tbody>
       </table>
