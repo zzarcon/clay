@@ -14,7 +14,7 @@
 
 ### Demo
 
-Check the Demo and Examples here http://zzarcon.github.io/clay/
+Check the Docs and Examples here http://zzarcon.github.io/clay/
 
 ### Showcase
 
