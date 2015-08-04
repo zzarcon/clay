@@ -8,6 +8,10 @@
 
 **Clay.js** is a lightweight, event-based Javascript library for make your elements resizables
 
+### Installation
+
+`bower install clay`
+
 ### Demo
 
 Check the Demo and Examples here http://zzarcon.github.io/clay/
