@@ -1,7 +1,7 @@
 {
   "name": "clay",
   "main": "clay.js",
-  "version": "0.1.19",
+  "version": "0.1.0",
   "homepage": "https://github.com/zzarcon/clay",
   "authors": [
     "zzarcon"
