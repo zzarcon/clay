@@ -1,5 +1,5 @@
 import {$, extend} from "./utils";
-var elementResizeEvent = require('element-resize-event');
+import elementResizeEvent from 'element-resize-event';
 
 exportModule('Clay', function() {
   class Clay {

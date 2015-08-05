@@ -7,7 +7,7 @@
     "start": "npm run serve | npm run dev",
     "serve": "./node_modules/.bin/http-server -p 8080",
     "dev": "webpack-dev-server --progress --colors --port 8090",
-    "build": "node_modules/browserify/bin/cmd.js clay.js -t babelify --outfile dist/clay.js",
+    "build": "node_modules/browserify/bin/cmd.js clay.js -s clay -t babelify --outfile dist/clay.js",
     "amend": "git add . && git commit --amend --reuse-message=HEAD",
     "push": "git push --tags && git push",
     "release": "bower version patch -f && npm version patch --force --no-git-tag-version && npm run build && npm run amend && npm run push && npm publish"
