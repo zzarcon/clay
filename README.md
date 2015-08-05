@@ -10,6 +10,7 @@
 
 ### Installation
 
+`npm install clay.js`
 `bower install clay`
 
 ### Demo
