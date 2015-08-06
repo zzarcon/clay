@@ -25,12 +25,15 @@
     "url": "https://github.com/zzarcon/clay/issues"
   },
   "homepage": "https://github.com/zzarcon/clay",
+  "dependencies": {
+    "exportable": "0.1.2",
+    "element-resize-event": "^2.0.3"
+  },
   "devDependencies": {
     "babel-core": "^5.4.3",
     "babel-loader": "^5.1.2",
     "babelify": "^6.1.3",
     "browserify": "^11.0.1",
-    "element-resize-event": "^2.0.3",
     "http-server": "~0.7.1",
     "webpack": "~1.4.4",
     "webpack-dev-server": "~1.6.5"

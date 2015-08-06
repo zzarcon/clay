@@ -1,7 +1,8 @@
 import {$, extend} from "./utils";
 import elementResizeEvent from 'element-resize-event';
+import exportable from "exportable";
 
-exportModule('Clay', function() {
+var Clay = function() {
   class Clay {
     constructor(selector, options) {
       var defaults = {resize: "both", absolute: false};
@@ -97,16 +98,10 @@ exportModule('Clay', function() {
   }
   
   return Clay;
+};
+
+exportable({
+  module: module,
+  name: 'Clay',
+  definition: Clay
 });
-
-function exportModule(name, definition) {
-  if (typeof module != 'undefined') {
-    module.exports = definition();
-  } else if (typeof define == 'function' && typeof define.amd == 'object') {
-    define(definition);
-  } 
-
-  if (typeof window != 'undefined') {
-    window[name] = definition();
-  }
-}
