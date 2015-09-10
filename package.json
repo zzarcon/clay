@@ -1,6 +1,6 @@
 {
   "name": "clay.js",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Resize your elements so simple it hurts",
   "main": "./dist/clay.js",
   "scripts": {

@@ -60,7 +60,8 @@ var Clay = function Clay() {
           if (!cb) return;
 
           var size = this.el.getBoundingClientRect();
-          cb(size);
+
+          cb(size, this.el);
         }).bind(this));
       }
 
