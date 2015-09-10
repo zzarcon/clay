@@ -1,11 +1,11 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.clay = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
+"use strict";
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var _utils = require("./utils");
 
@@ -13,7 +13,11 @@ var _elementResizeEvent = require('element-resize-event');
 
 var _elementResizeEvent2 = _interopRequireDefault(_elementResizeEvent);
 
-exportModule('Clay', function () {
+var _exportable = require("exportable");
+
+var _exportable2 = _interopRequireDefault(_exportable);
+
+var Clay = function Clay() {
   var Clay = (function () {
     function Clay(selector, options) {
       _classCallCheck(this, Clay);
@@ -22,8 +26,8 @@ exportModule('Clay', function () {
       var style;
 
       this.selector = selector;
+      this.el = typeof selector === 'string' ? (0, _utils.$)(selector) : selector;
       this.options = (0, _utils.extend)(defaults, options);
-      this.el = (0, _utils.$)(selector);
       this.eventHanlers = {};
 
       style = this.el.style;
@@ -49,9 +53,9 @@ exportModule('Clay', function () {
     }
 
     _createClass(Clay, [{
-      key: 'addEvents',
+      key: "addEvents",
       value: function addEvents() {
-        (0, _elementResizeEvent2['default'])(this.el, (function () {
+        (0, _elementResizeEvent2["default"])(this.el, (function () {
           var cb = this.eventHanlers['resize'];
           if (!cb) return;
 
@@ -67,7 +71,7 @@ exportModule('Clay', function () {
        * @return {Object}   instance
        */
     }, {
-      key: 'on',
+      key: "on",
       value: function on(eventName, cb) {
         this.eventHanlers[eventName] = cb;
 
@@ -81,7 +85,7 @@ exportModule('Clay', function () {
        * @return {void} 
        */
     }, {
-      key: 'cloneElement',
+      key: "cloneElement",
       value: function cloneElement() {
         var fake = this.el.cloneNode();
         var rect = this.el.getBoundingClientRect();
@@ -111,7 +115,7 @@ exportModule('Clay', function () {
        * @return {void} 
        */
     }, {
-      key: 'reset',
+      key: "reset",
       value: function reset() {
         this.el.style.resize = this.initialStyles.resize;
         this.el.style.overflow = this.initialStyles.overflow;
@@ -122,21 +126,15 @@ exportModule('Clay', function () {
   })();
 
   return Clay;
+};
+
+(0, _exportable2["default"])({
+  module: module,
+  name: 'Clay',
+  definition: Clay
 });
 
-function exportModule(name, definition) {
-  if (typeof module != 'undefined') {
-    module.exports = definition();
-  } else if (typeof define == 'function' && typeof define.amd == 'object') {
-    define(definition);
-  }
-
-  if (typeof window != 'undefined') {
-    window[name] = definition();
-  }
-}
-
-},{"./utils":3,"element-resize-event":2}],2:[function(require,module,exports){
+},{"./utils":4,"element-resize-event":2,"exportable":3}],2:[function(require,module,exports){
 module.exports = function(element, fn) {
   var window = this;
   var document = window.document;
@@ -209,6 +207,27 @@ module.exports = function(element, fn) {
 };
 
 },{}],3:[function(require,module,exports){
+'use strict';
+
+module.exports = function (options) {
+  var module = options.module;
+  var name = options.name; 
+  var definition = options.definition;
+
+	if (typeof module !== 'undefined' && module.exports) {
+    // CommonJS
+    module.exports = definition();
+  } else if (typeof define === 'function' && define.amd) {
+    // AMD
+    define(definition);
+  } 
+
+  if (typeof window != 'undefined') {
+    // Global Variables
+    window[name] = definition();
+  }
+};
+},{}],4:[function(require,module,exports){
 "use strict";
 
 function extend(a, b) {
