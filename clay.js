@@ -9,8 +9,8 @@ var Clay = function() {
       var style;
       
       this.selector = selector;
+      this.el = typeof selector === 'string' ? $(selector) : selector;
       this.options = extend(defaults, options);
-      this.el = $(selector);
       this.eventHanlers = {};
       
       style = this.el.style;
