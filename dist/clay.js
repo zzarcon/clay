@@ -9,9 +9,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var _utils = require("./utils");
 
-var _elementResizeEvent = require('element-resize-event');
+var _libElementResizeEvent = require('./lib/element-resize-event');
 
-var _elementResizeEvent2 = _interopRequireDefault(_elementResizeEvent);
+var _libElementResizeEvent2 = _interopRequireDefault(_libElementResizeEvent);
 
 var _exportable = require("exportable");
 
@@ -55,7 +55,7 @@ var Clay = function Clay() {
     _createClass(Clay, [{
       key: "addEvents",
       value: function addEvents() {
-        (0, _elementResizeEvent2["default"])(this.el, (function () {
+        (0, _libElementResizeEvent2["default"])(this.el, (function () {
           var cb = this.eventHanlers['resize'];
           if (!cb) return;
 
@@ -135,9 +135,10 @@ var Clay = function Clay() {
   definition: Clay
 });
 
-},{"./utils":4,"element-resize-event":2,"exportable":3}],2:[function(require,module,exports){
-module.exports = function(element, fn) {
-  var window = this;
+},{"./lib/element-resize-event":2,"./utils":4,"exportable":3}],2:[function(require,module,exports){
+'use strict';
+
+module.exports = function (element, fn) {
   var document = window.document;
 
   var attachEvent = document.attachEvent;
@@ -145,19 +146,18 @@ module.exports = function(element, fn) {
     var isIE = navigator.userAgent.match(/Trident/);
   }
 
-  var requestFrame = (function() {
-    var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || function(fn) {
-        return window.setTimeout(fn, 20);
-      };
-    return function(fn) {
+  var requestFrame = (function () {
+    var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || function (fn) {
+      return window.setTimeout(fn, 20);
+    };
+    return function (fn) {
       return raf(fn);
     };
   })();
 
-  var cancelFrame = (function() {
-    var cancel = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame ||
-      window.clearTimeout;
-    return function(id) {
+  var cancelFrame = (function () {
+    var cancel = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.clearTimeout;
+    return function (id) {
       return cancel(id);
     };
   })();
@@ -167,9 +167,9 @@ module.exports = function(element, fn) {
     if (win.__resizeRAF__) {
       cancelFrame(win.__resizeRAF__);
     }
-    win.__resizeRAF__ = requestFrame(function() {
+    win.__resizeRAF__ = requestFrame(function () {
       var trigger = win.__resizeTrigger__;
-      trigger.__resizeListeners__.forEach(function(fn) {
+      trigger.__resizeListeners__.forEach(function (fn) {
         fn.call(trigger, e);
       });
     });
