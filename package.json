@@ -26,8 +26,7 @@
   },
   "homepage": "https://github.com/zzarcon/clay",
   "dependencies": {
-    "exportable": "0.1.2",
-    "element-resize-event": "^2.0.3"
+    "exportable": "0.1.2"
   },
   "devDependencies": {
     "babel-core": "^5.4.3",
