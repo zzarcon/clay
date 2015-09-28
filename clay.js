@@ -1,5 +1,5 @@
 import {$, extend} from "./utils";
-import elementResizeEvent from 'element-resize-event';
+import elementResizeEvent from './lib/element-resize-event';
 import exportable from "exportable";
 
 var Clay = function() {
